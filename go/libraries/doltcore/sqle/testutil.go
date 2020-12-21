@@ -165,6 +165,7 @@ func drainIter(iter sql.RowIter) error {
 		if err == io.EOF {
 			break
 		} else if err != nil {
+			_ = iter.Close()
 			return err
 		}
 	}
