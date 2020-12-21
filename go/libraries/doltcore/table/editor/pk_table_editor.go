@@ -17,6 +17,7 @@ package editor
 import (
 	"context"
 	"fmt"
+	"github.com/dolthub/dolt/go/libraries/doltcore/table"
 	"io"
 	"strings"
 	"sync"
@@ -283,7 +284,7 @@ func (te *pkTableEditor) InsertRow(ctx context.Context, dRow row.Row) error {
 		if err != nil {
 			return err
 		}
-		return fmt.Errorf(ErrDuplicatePrimaryKeyFmt, keyStr)
+		return table.NewBadRow(dRow, fmt.Sprintf(ErrDuplicatePrimaryKeyFmt, keyStr))
 	}
 	te.tea.insertedKeys[keyHash] = key
 	te.tea.addedKeys[keyHash] = key
