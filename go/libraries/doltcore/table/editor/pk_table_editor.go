@@ -17,10 +17,11 @@ package editor
 import (
 	"context"
 	"fmt"
-	"github.com/dolthub/dolt/go/libraries/doltcore/table"
 	"io"
 	"strings"
 	"sync"
+
+	"github.com/dolthub/dolt/go/libraries/doltcore/table"
 
 	"github.com/dolthub/dolt/go/cmd/dolt/errhand"
 	"github.com/dolthub/dolt/go/libraries/doltcore/doltdb"
